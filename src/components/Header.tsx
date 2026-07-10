@@ -17,6 +17,7 @@ function Header({title = "Omnikron", logoUrl, links, currentPage, setCurrentPage
                 <div className="header-logo text-[1.5rem] font-bold no-underline text-black">
                     <a href="/" onClick={(e) =>{
                         e.preventDefault()
+                        history.pushState(null, '', '/')
                         setCurrentPage('home')
                     }}>
                         {logoUrl ? <div className="flex items-center gap-2"><img className="max-w-16 h-auto" src={logoUrl} alt={`${title} logo`} /> {title}</div> : <span>{title}</span>}
@@ -36,6 +37,7 @@ function Header({title = "Omnikron", logoUrl, links, currentPage, setCurrentPage
                                 <a href={link.href} className={`no-underline ${currentPage == link.pageId ? "text-blue-500" : "text-black"} font-medium hover:text-blue-500`}
                                     onClick={(e)=>{ 
                                         e.preventDefault()
+                                        history.pushState(null, '', link.href)
                                         setIsOpen(false) 
                                         setCurrentPage(link.pageId)
                                     }

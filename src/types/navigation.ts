@@ -11,3 +11,12 @@ export interface HeaderProps {
   currentPage: string;
   setCurrentPage: any;
 }
+
+export interface ProductsNavItem {
+    label: string;
+    description: string;
+    href: string;
+    parentHref: string;
+    groupLabel: string;
+    pageId: string;
+}
