@@ -9,6 +9,10 @@ import Solutions from './pages/Solutions/Solutions'
 import Contact from './pages/Contact/Contact'
 import Home from './pages/Home/Home'
 
+import AiMedicalDiagnoses from './pages/Products/AiAndDataScience/AiMedicalDiagnoses'
+import DecentralizedExchange from './pages/Products/Blockchain/DecentralizedExchange'
+import FarmLiquidityProvider from './pages/Products/Blockchain/FarmLiquidityProvider'
+
 function App() {
   const navigationLinks: NavItem[] = [
     {label: 'Home', href: '/', pageId: 'home'},
@@ -26,11 +30,19 @@ function App() {
       case 'home':
         return <Home />
       case 'products':
-        return <Products />
+        return <Products setCurrentPage={setCurrentPage} />
       case 'solutions':
         return <Solutions />
       case 'contact':
         return <Contact />
+
+      case 'ai-medical-diagnoses':
+        return <AiMedicalDiagnoses setCurrentPage={setCurrentPage} />
+      case 'decentralized-exchange':
+        return <DecentralizedExchange setCurrentPage={setCurrentPage} />
+      case 'farm-liquidity-provider':
+        return <FarmLiquidityProvider setCurrentPage={setCurrentPage} />
+        
       default:
         return <Home />
     }
