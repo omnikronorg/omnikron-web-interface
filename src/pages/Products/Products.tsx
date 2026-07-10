@@ -31,12 +31,12 @@ function Products(props:any)
 
     return (
         <div>
-            <h2>Products</h2>
+            <h2 className="p-6 text-4xl font-bold">Products</h2>
 
-            <ul>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-6 mx-auto max-w-7xl px-4">
                 {
                 productCards.map((card, index) => (
-                    <li key={index}>
+                    <div key={index} className="bg-white rounded-2xl shadow-xl/30 overflow-hidden hover:bg-slate-200 hover:shadow-xl/15">
                         <a 
                         href={card.parentHref + card.href}
                         onClick={(e) =>{
@@ -45,11 +45,17 @@ function Products(props:any)
                             props.setCurrentPage(card.pageId)
                         }}
                         >
-                            {card.label}
+                            <div className="p-4">
+                                <h3 className="text-gray-900 mt-3 text-2xl text-center">{card.label}</h3>
+                                <p className="text-sm text-gray-600 mt-2">{card.description}</p>
+                                <span className="text-blue-500 text-sm font-medium mt-4 block">
+                                    Read More
+                                </span>
+                            </div>
                         </a>
-                    </li>
+                    </div>
                 ))}
-            </ul>
+            </div>
         </div>
     )
 }
