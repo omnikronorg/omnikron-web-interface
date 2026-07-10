@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Header from './components/Header'
 import type { NavItem } from './types/navigation'
@@ -21,7 +21,31 @@ function App() {
     {label: 'Contact', href: '/contact', pageId: 'contact'}
   ]
 
-  const [currentPage, setCurrentPage] = useState('home')
+  const pageMap: Record<string, string> = {
+    '/': 'home',
+    '/products': 'products',
+    '/solutions': 'solutions',
+    '/contact': 'contact',
+    '/products/ai-medical-diagnoses': 'ai-medical-diagnoses',
+    '/products/decentralized-exchange': 'decentralized-exchange',
+    '/products/farm-liquidity-provider': 'farm-liquidity-provider',
+  }
+
+  const [currentPage, setCurrentPage] = useState(() => {
+    const path = window.location.pathname
+    return pageMap[path] || 'home'
+  })
+
+  useEffect(() => {
+    const handlePopState = () => {
+      const path = window.location.pathname
+      setCurrentPage(pageMap[path] || 'home')
+    }
+    
+    window.addEventListener('popstate', handlePopState)
+    return () => window.removeEventListener('popstate', handlePopState)
+  }, [])
+
 
   function renderPage()
   {
