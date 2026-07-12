@@ -1,6 +1,6 @@
 import type { ProductsNavItem } from "../../types/navigation"
 
-function Products(props:any)
+function Products({setCurrentPage}:any)
 {
     const productCards: ProductsNavItem[] = [
         {
@@ -42,7 +42,7 @@ function Products(props:any)
                         onClick={(e) =>{
                             e.preventDefault()
                             history.pushState(null, '', card.parentHref + card.href)
-                            props.setCurrentPage(card.pageId)
+                            setCurrentPage(card.pageId)
                         }}
                         >
                             <div className="p-4">

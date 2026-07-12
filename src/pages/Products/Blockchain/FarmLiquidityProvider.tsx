@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "lucide-react"
 
-function FarmLiquidityProvider(props:any)
+function FarmLiquidityProvider({setCurrentPage}:any)
 {
     return (
         <div>
@@ -9,7 +9,7 @@ function FarmLiquidityProvider(props:any)
             <a href="/products" onClick={(e) => {
                 e.preventDefault()
                 history.pushState(null, '', '/products')
-                props.setCurrentPage('products')
+                setCurrentPage('products')
             }}>
                 <ArrowLeftIcon />
                 <span>Products</span>
