@@ -1,6 +1,6 @@
 import { ArrowLeftIcon } from "lucide-react"
 
-function DecentralizedExchange(props:any)
+function DecentralizedExchange({setCurrentPage}:any)
 {
     return (
         <div>
@@ -9,7 +9,7 @@ function DecentralizedExchange(props:any)
             <a href="/products" onClick={(e) => {
                 e.preventDefault()
                 history.pushState(null, '', '/products')
-                props.setCurrentPage('products')
+                setCurrentPage('products')
             }}>
                 <ArrowLeftIcon />
                 <span>Products</span>
