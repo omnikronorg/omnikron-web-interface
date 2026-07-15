@@ -1,63 +1,63 @@
 import type { ProductsNavItem } from "../../types/navigation"
+import { Brain, Link2 } from "lucide-react"
 
-function Products({setCurrentPage}:any)
-{
-    const productCards: ProductsNavItem[] = [
-        {
-            label: "AI Medical Diagnoses", 
-            description: "Identifying Medical Diagnoses by Image-Based Deep Learning.",
-            href: "/ai-medical-diagnoses",
-            parentHref: "/products",
-            groupLabel: "AI & Data Science",
-            pageId: "ai-medical-diagnoses"
-        },
-        {
-            label: "Decentralized Exchange (DEX)", 
-            description: "Multichain DEX (Uniswap like) enabling the swapping of ERC-20 tokens via liquidity pools.",
-            href: "/decentralized-exchange",
-            parentHref: "/products",
-            groupLabel: "Blockchain",
-            pageId: "decentralized-exchange"
-        },
-        {
-            label: "Farm Liquidity Provider", 
-            description: "Yield Farming - DEX Liquidity Pools & Farms.",
-            href: "/farm-liquidity-provider",
-            parentHref: "/products",
-            groupLabel: "Blockchain",
-            pageId: "farm-liquidity-provider"
-        }
-    ]
+const iconMap: Record<string, React.ReactNode> = {
+  "AI & Data Science": <Brain className="w-7 h-7 text-indigo-600" />,
+  "Blockchain": <Link2 className="w-7 h-7 text-amber-600" />,
+}
 
-    return (
-        <div>
-            <h2 className="p-6 text-4xl font-bold">Products</h2>
+function Products({ setCurrentPage }: any) {
+  const productCards: ProductsNavItem[] = [
+    {
+      label: "AI Medical Diagnoses",
+      description: "Identifying Medical Diagnoses by Image-Based Deep Learning.",
+      href: "/ai-medical-diagnoses",
+      parentHref: "/products",
+      groupLabel: "AI & Data Science",
+      pageId: "ai-medical-diagnoses",
+    },
+    {
+      label: "Token Creator",
+      description: "Create and manage custom tokens on the blockchain.",
+      href: "/token-creator",
+      parentHref: "/products",
+      groupLabel: "Blockchain",
+      pageId: "token-creator",
+    },
+  ]
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-3 gap-6 mx-auto max-w-7xl px-4">
-                {
-                productCards.map((card, index) => (
-                    <div key={index} className="bg-white rounded-2xl shadow-xl/30 overflow-hidden hover:bg-slate-200 hover:shadow-xl/15">
-                        <a 
-                        href={card.parentHref + card.href}
-                        onClick={(e) =>{
-                            e.preventDefault()
-                            history.pushState(null, '', card.parentHref + card.href)
-                            setCurrentPage(card.pageId)
-                        }}
-                        >
-                            <div className="p-4">
-                                <h3 className="text-gray-900 mt-3 text-2xl text-center">{card.label}</h3>
-                                <p className="text-sm text-gray-600 mt-2">{card.description}</p>
-                                <span className="text-blue-500 text-sm font-medium mt-4 block">
-                                    Read More
-                                </span>
-                            </div>
-                        </a>
-                    </div>
-                ))}
+  const handleClick = (e: React.MouseEvent, card: ProductsNavItem) => {
+    e.preventDefault()
+    history.pushState(null, "", card.parentHref + card.href)
+    setCurrentPage(card.pageId)
+  }
+
+  return (
+    <main className="max-w-4xl mx-auto px-6 py-16">
+      <h1 className="text-5xl font-bold text-gray-900 mb-12">Products</h1>
+      <div className="space-y-4">
+        {productCards.map((card) => (
+          <a
+            key={card.label}
+            href={card.parentHref + card.href}
+            onClick={(e) => handleClick(e, card)}
+            className="flex items-center gap-5 p-5 rounded-xl bg-white border border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300 transition-all"
+          >
+            <span className="flex items-center justify-center w-10 h-10 rounded-lg bg-gray-50 shrink-0">
+              {iconMap[card.groupLabel] ?? "📦"}
+            </span>
+            <div className="flex-1 min-w-0">
+              <h2 className="text-lg font-semibold text-gray-900">{card.label}</h2>
+              <p className="text-sm text-gray-500 mt-0.5">{card.description}</p>
             </div>
-        </div>
-    )
+            <span className="hidden sm:block text-xs font-medium text-gray-400 uppercase tracking-wider whitespace-nowrap">
+              {card.groupLabel}
+            </span>
+          </a>
+        ))}
+      </div>
+    </main>
+  )
 }
 
 export default Products
