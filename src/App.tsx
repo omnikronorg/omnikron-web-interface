@@ -10,8 +10,7 @@ import Contact from './pages/Contact/Contact'
 import Home from './pages/Home/Home'
 
 import AiMedicalDiagnoses from './pages/Products/AiAndDataScience/AiMedicalDiagnoses'
-import DecentralizedExchange from './pages/Products/Blockchain/DecentralizedExchange'
-import FarmLiquidityProvider from './pages/Products/Blockchain/FarmLiquidityProvider'
+import TokenCreator from './pages/Products/Blockchain/TokenCreator'
 
 function App() {
   const navigationLinks: NavItem[] = [
@@ -27,8 +26,7 @@ function App() {
     '/solutions': 'solutions',
     '/contact': 'contact',
     '/products/ai-medical-diagnoses': 'ai-medical-diagnoses',
-    '/products/decentralized-exchange': 'decentralized-exchange',
-    '/products/farm-liquidity-provider': 'farm-liquidity-provider',
+    '/products/token-creator': 'token-creator',
   }
 
   const [currentPage, setCurrentPage] = useState(() => {
@@ -62,10 +60,8 @@ function App() {
 
       case 'ai-medical-diagnoses':
         return <AiMedicalDiagnoses setCurrentPage={setCurrentPage} />
-      case 'decentralized-exchange':
-        return <DecentralizedExchange setCurrentPage={setCurrentPage} />
-      case 'farm-liquidity-provider':
-        return <FarmLiquidityProvider setCurrentPage={setCurrentPage} />
+      case 'token-creator':
+        return <TokenCreator setCurrentPage={setCurrentPage} />
         
       default:
         return <Home />

@@ -1,10 +1,10 @@
 import { ArrowLeftIcon } from "lucide-react"
 
-function FarmLiquidityProvider({setCurrentPage}:any)
+function TokenCreator({setCurrentPage}:any)
 {
     return (
         <div>
-            <h2>Farm Liquidity Provider</h2>
+            <h2>Token Creator</h2>
 
             <a href="/products" onClick={(e) => {
                 e.preventDefault()
@@ -18,4 +18,4 @@ function FarmLiquidityProvider({setCurrentPage}:any)
     )
 }
 
-export default FarmLiquidityProvider
+export default TokenCreator
