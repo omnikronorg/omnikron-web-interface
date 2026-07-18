@@ -3,8 +3,10 @@ FROM node:22-alpine AS build
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+# Use a fresh npm install without the host lockfile so native bindings
+# are resolved for the Docker container's platform (linux-arm64-musl)
+COPY package.json ./
+RUN npm install
 
 COPY . .
 RUN npm run build
