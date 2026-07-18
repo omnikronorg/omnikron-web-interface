@@ -1,4 +1,4 @@
-import { ArrowLeftIcon, BrainCircuitIcon, BarChart3Icon, DollarSignIcon, ActivityIcon, ScanIcon, AmbulanceIcon, GlobeIcon, ShieldCheckIcon, ChevronRightIcon, MicroscopeIcon, HeartPulseIcon, FileTextIcon, BotIcon, ImageIcon, ClipboardListIcon, ArrowRightIcon, LayersIcon, ServerIcon, CpuIcon, StethoscopeIcon } from "lucide-react"
+import { ArrowLeftIcon, BrainCircuitIcon, BarChart3Icon, DollarSignIcon, ActivityIcon, ScanIcon, ShieldCheckIcon, ChevronRightIcon, MicroscopeIcon, HeartPulseIcon, FileTextIcon, BotIcon, ImageIcon, ClipboardListIcon, ArrowRightIcon, LayersIcon, ServerIcon, CpuIcon, StethoscopeIcon } from "lucide-react"
 import medicalImageData from '../../../assets/medical-image-data.png'
 import pneumoniaDiagnosisTrainingImage from '../../../assets/Pneumonia-Diagnosis-Training.png'
 import TrainingAccuracyImage from '../../../assets/Training-Accuracy.png'
@@ -47,29 +47,6 @@ const modalities = [
         title: "MRI",
         findings: ["Brain Tumors & Lesions", "Neurological Diseases", "Spinal Cord Abnormalities", "Soft Tissue Pathology"],
         description: "Advanced magnetic resonance imaging for detailed soft tissue and neurological diagnostics."
-    }
-]
-
-const useCases = [
-    {
-        icon: ScanIcon,
-        title: "Medical Imaging Triage",
-        description: "Prioritize critical findings across chest X-rays, echocardiograms, and MRI scans — flagging urgent cases for immediate radiologist review."
-    },
-    {
-        icon: MicroscopeIcon,
-        title: "Multi-Modality Diagnostics",
-        description: "Apply trained CNN models across different imaging modalities — from thoracic radiology to cardiac ultrasound and neurological MRI."
-    },
-    {
-        icon: AmbulanceIcon,
-        title: "Clinical Decision Support",
-        description: "AI-powered second opinion system that augments physician expertise with quantitative analysis and confidence scoring."
-    },
-    {
-        icon: GlobeIcon,
-        title: "Remote & Scalable Deployment",
-        description: "Containerized architecture enabling deployment across cloud, on-premise, or edge infrastructure worldwide."
     }
 ]
 

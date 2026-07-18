@@ -1,5 +1,5 @@
 import type { ProductsNavItem } from "../../types/navigation"
-import { Brain, Link2 } from "lucide-react"
+import { Brain } from "lucide-react"
 
 const iconMap: Record<string, React.ReactNode> = {
   "AI & Data Science": <Brain className="w-7 h-7 text-indigo-600" />
