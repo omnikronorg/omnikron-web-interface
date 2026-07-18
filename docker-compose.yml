@@ -1,0 +1,7 @@
+services:
+  omnikron-web:
+    build: .
+    container_name: omnikron-web
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
