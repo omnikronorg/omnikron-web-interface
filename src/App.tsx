@@ -10,14 +10,13 @@ import Contact from './pages/Contact/Contact'
 import Home from './pages/Home/Home'
 
 import AiMedicalDiagnoses from './pages/Products/AiAndDataScience/AiMedicalDiagnoses'
-import TokenCreator from './pages/Products/Blockchain/TokenCreator'
 
 function App() {
   const navigationLinks: NavItem[] = [
     {label: 'Home', href: '/', pageId: 'home'},
     {label: 'Products', href: '/products', pageId: 'products'},
-    {label: 'Solutions', href: '/solutions', pageId: 'solutions'},
-    {label: 'Contact', href: '/contact', pageId: 'contact'}
+    // {label: 'Solutions', href: '/solutions', pageId: 'solutions'},
+    // {label: 'Contact', href: '/contact', pageId: 'contact'}
   ]
 
   const pageMap: Record<string, string> = {
@@ -26,7 +25,6 @@ function App() {
     '/solutions': 'solutions',
     '/contact': 'contact',
     '/products/ai-medical-diagnoses': 'ai-medical-diagnoses',
-    '/products/token-creator': 'token-creator',
   }
 
   const [currentPage, setCurrentPage] = useState(() => {
@@ -60,8 +58,6 @@ function App() {
 
       case 'ai-medical-diagnoses':
         return <AiMedicalDiagnoses setCurrentPage={setCurrentPage} />
-      case 'token-creator':
-        return <TokenCreator setCurrentPage={setCurrentPage} />
         
       default:
         return <Home />

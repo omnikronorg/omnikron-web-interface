@@ -1,1 +1,64 @@
-@import "tailwindcss"
+@import "tailwindcss";
+
+@keyframes fade-in
+{
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
+
+@keyframes fade-in-up
+{
+    from { opacity: 0; transform: translateY(20px) }
+    to { opacity: 1; transform: translateY(0) }
+}
+
+@keyframes slide
+{
+    0% { transform: translateY(0) }
+    15% { transform: translateY(0) }
+    20% { transform: translateY(-1.75rem) }
+    35% { transform: translateY(-1.75rem) }
+    40% { transform: translateY(-3.5rem) }
+    55% { transform: translateY(-3.5rem) }
+    60% { transform: translateY(-5.25rem) }
+    80% { transform: translateY(-5.25rem) }
+    100% { transform: translateY(0) }
+}
+
+.animate-fade-in
+{
+    animation: fade-in 2s ease-out forwards;
+}
+
+.animate-fade-in-up
+{
+    animation: fade-in-up 2s ease-out forwards;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+.slider-wrapper
+{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.slider
+{
+    height: 1.75rem;
+    overflow: hidden;
+    line-height: 1.75rem;
+}
+
+.slider-inner
+{
+    animation: slide 12s ease infinite;
+}
+
+.slider-text
+{
+    height: 1.75rem;
+    line-height: 1.75rem;
+}

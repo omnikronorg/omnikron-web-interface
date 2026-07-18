@@ -2,8 +2,7 @@ import type { ProductsNavItem } from "../../types/navigation"
 import { Brain, Link2 } from "lucide-react"
 
 const iconMap: Record<string, React.ReactNode> = {
-  "AI & Data Science": <Brain className="w-7 h-7 text-indigo-600" />,
-  "Blockchain": <Link2 className="w-7 h-7 text-amber-600" />,
+  "AI & Data Science": <Brain className="w-7 h-7 text-indigo-600" />
 }
 
 function Products({ setCurrentPage }: any) {
@@ -15,15 +14,7 @@ function Products({ setCurrentPage }: any) {
       parentHref: "/products",
       groupLabel: "AI & Data Science",
       pageId: "ai-medical-diagnoses",
-    },
-    {
-      label: "Token Creator",
-      description: "Create and manage custom tokens on the blockchain.",
-      href: "/token-creator",
-      parentHref: "/products",
-      groupLabel: "Blockchain",
-      pageId: "token-creator",
-    },
+    }
   ]
 
   const handleClick = (e: React.MouseEvent, card: ProductsNavItem) => {
