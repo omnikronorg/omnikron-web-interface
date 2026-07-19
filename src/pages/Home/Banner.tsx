@@ -1,3 +1,5 @@
+import { ChevronDownIcon } from "lucide-react"
+
 function Banner()
 {
     return (
@@ -24,8 +26,12 @@ function Banner()
                         </div>
                     </div>
                 </div>
-
             </div>
+
+            <div className="absolute bottom-42 left-1/2 -translate-x-1/2 text-white opacity-5">
+                <ChevronDownIcon className="size-16" />
+            </div>
+
 
         </section>
     )
